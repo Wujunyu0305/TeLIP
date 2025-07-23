@@ -1,2 +1,88 @@
-# TeLIP
-TeLIP is a transformer that predicts landslide initiation position based on terrain and soil depth data.
+# TeLIP: Terrain-Based Landslide Initiation Position Model
+
+## 📌 Overview
+TeLIP is a deep learning model designed to predict landslide initiation positions based on topographic and geologic features of hillslopes. It uses Transformer-based architecture to capture the interdependencies among terrain features along slope profiles. The model is capable of handling complex relationships and providing interpretable outputs for landslide susceptibility assessments.
+
+<!-- The fast assessment of the global minimum adsorption energy (GMAE) between catalyst surfaces and adsorbates is crucial for large-scale catalyst screening. However, multiple adsorption sites and numerous possible adsorption configurations for each surface/adsorbate combination make it prohibitively expensive to calculate the GMAE through density functional theory (DFT). Thus, we designed a novel multi-modal transformer called AdsMT to rapidly predict the GMAE based on surface graphs and adsorbate feature vectors without any binding information. -->
+<!-- Three diverse benchmark datasets were constructed for this challenging GMAE prediction task. Our AdsMT framework demonstrates excellent performance by adopting the tailored graph encoder and transfer learning, achieving mean absolute errors of 0.09, 0.14, and 0.39 eV, respectively. Beyond GMAE prediction, AdsMT's cross-attention scores showcase the interpretable potential to identify the most energetically favorable adsorption sites. Additionally, uncertainty quantification was integrated into AdsMT to further enhance its trustworthiness in experimental catalyst discovery. -->
+
+
+## 🚀 Environment Setup
+- System Requirements: This package can run on a standard Windows machine with at least 2 GB of RAM. It does not require a GPU as the code will run on the CPU.
+- Install `Anaconda`: Follow the `Anaconda` [installation guide](https://docs.anaconda.com/anaconda/install/).
+- Create and activate the environment:
+   ```bash
+   conda env create -f env.yml
+   conda activate telip
+   ```
+- This will set up the environment with all required dependencies for TeLIP.
+
+Key Features
+High-Locality Initiation Prediction: Predicts landslide initiation positions based on terrain characteristics such as soil thickness, slope, plan curvature, and more.
+
+Explainable AI: Implements SHAP (Shapley Additive Explanations) for model interpretability, enabling transparency in how terrain factors influence the predictions.
+
+Profile-based Input: The model takes continuous profiles of terrain data to predict the initiation location with respect to the slope's horizontal length.
+
+Model Architecture: Uses an encoder-only Transformer network for efficient learning of spatial dependencies.
+
+Methodology
+Terrain Profile Extraction: Slope profiles are extracted using GIS-based hydrological methods, delineating ridge and valley lines and using the steepest descent method.
+
+Feature Engineering: Eight terrain factors (soil thickness, slope, plan curvature, profile curvature, position index, TWI, elevation, relative height) are considered.
+
+Model Design: TeLIP employs an encoder-only Transformer to process terrain feature matrices and predict landslide initiation locations.
+
+Model Evaluation: The model is trained using a binary cross-entropy loss function, evaluated with mean absolute errors (MAE) and mean normalized position errors (MNPE).
+
+SHAP Analysis: SHAP is used to interpret the contribution of each feature to the model’s predictions.
+
+Setup
+Prerequisites
+Python 3.x
+
+Required libraries:
+
+PyTorch
+
+NumPy
+
+Pandas
+
+SHAP
+
+scikit-learn
+
+Matplotlib
+
+You can install the necessary dependencies using pip:
+
+bash
+复制
+pip install torch numpy pandas shap scikit-learn matplotlib
+Data Preparation
+The model requires terrain data in the form of digital elevation models (DEMs) and other topographic features (e.g., soil thickness, TWI).
+
+Input data should be preprocessed to extract slope profiles and corresponding terrain features.
+
+Running the Model
+Prepare the dataset with terrain feature matrices and landslide initiation vectors.
+
+Train the model using the provided training scripts.
+
+bash
+复制
+python train.py --data <path_to_dataset> --output <model_output_path>
+After training, the model can be used for prediction:
+
+bash
+复制
+python predict.py --model <trained_model_path> --data <test_data_path> --output <predictions_path>
+Results
+TeLIP’s output consists of landslide initiation probabilities across the slope profiles. The model’s performance is evaluated based on MAE and MNPE, with validation conducted using five-fold cross-validation.
+
+Contributing
+If you’d like to contribute to this project, please fork the repository and submit a pull request. We welcome contributions that improve the model or extend its functionality.
+
+License
+This project is licensed under the MIT License.
