@@ -20,6 +20,7 @@
 ## 📊 Datasets
 Example dataset link: [Zenodo](https://xxx)
 - Three types of input data are required for the model: `geological data` as predictors, `landslide position data` as targets, and `slope length data` for evaluating prediction error.
+- Users can create their corresponding training datasets based on the following data format according to their landslide research objectives.
 
 1.`Geological data`: The table below provides a reference for `geological data` format Each row represents a position along a slope profile (`Position ID`) within a given sample (`Sample ID`). Each position is characterized by a set of features (`Feature #1` to `Feature #F`), including terrain attributes such as elevation, slope, curvature, and other environmental variables. The number of positions (n) per sample can be adjusted depending on the length and resolution of the slope profile.
 | Sample ID | Position ID | Feature #1 |  Feature #2 | ... | Feature #F |
@@ -63,6 +64,9 @@ Example dataset link: [Zenodo](https://xxx)
 | 2        | 284.8        | 26.3                    |
 | ...      | ...          | ...                     |
 | N        | 495.2        | 54.5                    |
+
+## 🔥 Model Training
+
 
 
 Key Features
