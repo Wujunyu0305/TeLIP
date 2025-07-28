@@ -17,7 +17,25 @@ TeLIP is a deep learning model designed to predict landslide initiation position
    ```
 - This will set up the environment with all required dependencies for TeLIP.
 
-Three types of input data are required for the model: geological features as predictors, landslide initiation positions as targets, and slope length information for evaluating prediction error.
+## 📊 Datasets
+Example dataset link: [Zenodo](https://xxx)
+- Three types of input data are required for the model: geological data as predictors, landslide position data as targets, and slope length data for evaluating prediction error.
+
+1.`Geological data`: The table below provides a reference for `geological data` format Each row represents a position along a slope profile (Position ID) within a given sample (Sample ID). Each position is characterized by a set of features (Feature #1 to Feature #F), including terrain attributes such as elevation, slope, curvature, and other environmental variables. The number of positions (n) per sample can be adjusted depending on the length and resolution of the slope profile.
+| Sample ID | Position ID | Feature #1 | Feature #2 | ... | Feature #F |
+|:--------:|:---------:|:----------:|:-----------:|:------:|:------:|
+| 0 | 0 | 120.8 | 112 | ... | 1 |
+| 0 | 1 | 119.6 | 114 | ... | 0.97 |
+| 0 | 2 | 116.3 | 113 | ... | 0.74 |
+| ... | ... | ... | ... | ... | ... |
+| 0 | n | 32.6 | 108 | ... | 0.65 |
+| 1 | 0 | 123.8 | 152 | ... | 1 |
+| 1 | 1 | 117.6 | 151 | ... | 0.94 |
+| 1 | 2 | 116.3 | 148 | ... | 0.81 |
+| ... | ... | ... | ... | ... | ... |
+| 1 | n | 26.6 | 128 | ... | 0.62 |
+| ... | ... | ... | ... | ... | ... |
+| N | n | 21.6 | 29 | ... | 0.48 |
 
 Key Features
 High-Locality Initiation Prediction: Predicts landslide initiation positions based on terrain characteristics such as soil thickness, slope, plan curvature, and more.
