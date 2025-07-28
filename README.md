@@ -21,37 +21,49 @@
 Example dataset link: [Zenodo](https://xxx)
 - Three types of input data are required for the model: `geological data` as predictors, `landslide position data` as targets, and `slope length data` for evaluating prediction error.
 
-1.`Geological data`: The table below provides a reference for `geological data` format Each row represents a position along a slope profile (Position ID) within a given sample (Sample ID). Each position is characterized by a set of features (Feature #1 to Feature #F), including terrain attributes such as elevation, slope, curvature, and other environmental variables. The number of positions (n) per sample can be adjusted depending on the length and resolution of the slope profile.
-| Sample ID | Position ID | Feature #1 | Feature #2 | ... | Feature #F |
-|:--------:|:---------:|:----------:|:-----------:|:------:|:------:|
-| 0 | 0 | 120.8 | 112 | ... | 1 |
-| 0 | 1 | 119.6 | 114 | ... | 0.97 |
-| 0 | 2 | 116.3 | 113 | ... | 0.74 |
-| ... | ... | ... | ... | ... | ... |
-| 0 | n | 32.6 | 108 | ... | 0.65 |
-| 1 | 0 | 123.8 | 152 | ... | 1 |
-| 1 | 1 | 117.6 | 151 | ... | 0.94 |
-| 1 | 2 | 116.3 | 148 | ... | 0.81 |
-| ... | ... | ... | ... | ... | ... |
-| 1 | n | 26.6 | 128 | ... | 0.62 |
-| ... | ... | ... | ... | ... | ... |
-| N | n | 21.6 | 29 | ... | 0.48 |
+1.`Geological data`: The table below provides a reference for `geological data` format Each row represents a position along a slope profile (`Position ID`) within a given sample (`Sample ID`). Each position is characterized by a set of features (`Feature #1` to `Feature #F`), including terrain attributes such as elevation, slope, curvature, and other environmental variables. The number of positions (n) per sample can be adjusted depending on the length and resolution of the slope profile.
+| Sample ID | Position ID | Feature #1 |  Feature #2 | ... | Feature #F |
+|:---------:|:-----------:|:----------:|:-----------:|:---:|:----------:|
+|     0     |      0      |    120.8   |     112     | ... |     1      |
+|     0     |      1      |    119.6   |     114     | ... |    0.97    |
+|     0     |      2      |    116.3   |     113     | ... |    0.74    |
+|    ...    |     ...     |    ...     |     ...     | ... |    ...     |
+|     0     |      n      |    32.6    |     108     | ... |    0.65    |
+|     1     |      0      |    123.8   |     152     | ... |     1      |
+|     1     |      1      |    117.6   |     151     | ... |    0.94    |
+|     1     |      2      |    116.3   |     148     | ... |    0.81    |
+|    ...    |     ...     |    ...     |     ...     | ... |    ...     |
+|     1     |      n      |    26.6    |     128     | ... |    0.62    |
+|    ...    |     ...     |    ...     |     ...     | ... |    ...     |
+|     N     |      n      |    21.6    |     29      | ... |    0.48    |
 
-2.`landslide position data`: The `landslide position data` table is structured to track the location of landslide initiation along a slope profile. Each sample (e.g., a slope profile) is divided into multiple positions, with a binary label for each position indicating whether a landslide occurred at that specific location. `Landslide Binary Value` is a binary value indicating landslide occurrence. A 1 indicates that a landslide occurred at that position, and a 0 indicates no landslide at that position.
-   | Sample ID | Position ID | Landslide Binary Value |
-   |:---------:|:-----------:|:----------------------:|
-   | 0 |      0      |            0           |
-   | 0 |      1      |            0           |
-   | 0 |      2      |            0           |
-   | ... |     ...     |           ...          |
-   | 0 |      n      |            0           |
-   | 1 |      0      |            0           |
-   | 1 |      1      |            0           |
-   | 1 |      2      |            1           |
-   | ... |     ...     |           ...          |
-   | 1 |      n      |            0           |
-   | ... |     ...     |           ...          |
-   | N |      n      |            0           |
+
+2.`Landslide position data`: The `landslide position data` table is structured to track the location of landslide initiation along a slope profile. Each sample (e.g., a slope profile) is divided into multiple positions, with a binary label for each position indicating whether a landslide occurred at that specific location. `Landslide Binary Value` is a binary value indicating landslide occurrence. A 1 indicates that a landslide occurred at that position, and a 0 indicates no landslide at that position.
+| Sample ID | Position ID | Landslide Binary Value |
+|:---------:|:-----------:|:----------------------:|
+|     0     |      0      |            0           |
+|     0     |      1      |            0           |
+|     0     |      2      |            0           |
+|    ...    |     ...     |           ...          |
+|     0     |      n      |            0           |
+|     1     |      0      |            0           |
+|     1     |      1      |            0           |
+|     1     |      2      |            1           |
+|    ...    |     ...     |           ...          |
+|     1     |      n      |            0           |
+|    ...    |     ...     |           ...          |
+|     N     |      n      |            0           |
+
+
+3.`Slope length data`: The `slope length data` table provides the total horizontal length of each slope and the true landslide initiation position. Each row represents a unique `Sample ID`, with the `Slope Length` as the total horizontal distance, and the `True Landslide Position` as the horizontal distance from the start of the slope to the landslide location. This data is used to evaluate prediction errors by comparing predicted landslide positions with true positions.
+| Sample ID | Slope Length | True Landslide Position |
+|:--------:|:------------:|:-----------------------:|
+| 0        | 185.3        | 35.0                    |
+| 1        | 366.2        | 62.0                    |
+| 2        | 284.8        | 26.3                    |
+| ...      | ...          | ...                     |
+| N        | 495.2        | 54.5                    |
+
 
 Key Features
 High-Locality Initiation Prediction: Predicts landslide initiation positions based on terrain characteristics such as soil thickness, slope, plan curvature, and more.
