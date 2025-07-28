@@ -17,6 +17,8 @@ TeLIP is a deep learning model designed to predict landslide initiation position
    ```
 - This will set up the environment with all required dependencies for TeLIP.
 
+Three types of input data are required for the model: geological features as predictors, landslide initiation positions as targets, and slope length information for evaluating prediction error.
+
 Key Features
 High-Locality Initiation Prediction: Predicts landslide initiation positions based on terrain characteristics such as soil thickness, slope, plan curvature, and more.
 
