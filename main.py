@@ -46,7 +46,7 @@ def main():
 
         mean_fold_error = np.mean(fold_norm_errors)
         all_norm_errors.append(mean_fold_error)
-        print(f"Average Norm Pos Error for seed {seed + 1}: {mean_fold_error:.4f}")
+        print(f"Mean Norm Pos Error for seed {seed + 1}: {mean_fold_error:.4f}")
 
     final_mean_error = np.mean(all_norm_errors)
     print(f"\n=== Final Mean Norm Pos Error (MNPE) across all runs = {final_mean_error:.4f}")
