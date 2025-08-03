@@ -71,7 +71,19 @@ To train the `SlopeTransformer` model, run the following command:
    ```bash
    python main.py
    ```
-This script loads `Geological data.CSV`, `Landslide position data.CSV`, and `Slope length data.CSV`. It trains the model using 5-fold cross-validation, with the `SlopeTransformer` model and `Norm Position Error` (NPE) as the evaluation metric.
+This script loads `Geological data.CSV`, `Landslide position data.CSV`, and `Slope length data.CSV`. It trains the model using 5-fold cross-validation, with the `SlopeTransformer` model and `Norm Position Error` (NPE) as the evaluation metric. Training may take several hours, and the final `Mean Norm Position Error` (MNPE) is reported after all folds.
+
+### 2. Cross-Validation for Robust Evaluation
+The dataset is split into 5 folds. The model is trained on the training subset and evaluated on the validation subset. The `NPE` metric is used for evaluation, and early stopping is applied to prevent overfitting.
+
+### 3. Model Architecture
+The `SlopeTransformer` model uses:
+`Positional Encoding` for input feature ordering.
+`Transformer Encoder` for feature extraction.
+A `Linear Layer` for predicting the landslide position.
+The model is trained with `BCELoss` to minimize the error between predicted and actual positions.
+
+
 
 Results
 TeLIP’s output consists of landslide initiation probabilities across the slope profiles. The model’s performance is evaluated based on MAE and MNPE, with validation conducted using five-fold cross-validation.
