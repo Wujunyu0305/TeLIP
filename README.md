@@ -89,7 +89,7 @@ This work is supported by the National Key R&D Program of China (2024YFC3012601)
 ## 📫 Contact
 If you have any question or advice, welcome to contact me at:
 
-Junyu Wu: junwu.wujunyu@zju.edu.cn
+Junyu Wu: wujunyu@zju.edu.cn
 
 
 
