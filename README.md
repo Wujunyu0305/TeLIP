@@ -86,12 +86,10 @@ The model is trained with `BCELoss` to minimize the error between predicted and 
 ## 🌈 Acknowledgements
 This work is supported by the National Key R&D Program of China (2024YFC3012601) and the National Natural Science Foundation of China (42277132).
 
+## 📫 Contact
+If you have any question or advice, welcome to contact me at:
 
-Results
-TeLIP’s output consists of landslide initiation probabilities across the slope profiles. The model’s performance is evaluated based on MAE and MNPE, with validation conducted using five-fold cross-validation.
+Junyu Wu: junwu.wujunyu@zju.edu.cn
 
-Contributing
-If you’d like to contribute to this project, please fork the repository and submit a pull request. We welcome contributions that improve the model or extend its functionality.
 
-License
-This project is licensed under the MIT License.
+
