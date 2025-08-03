@@ -66,70 +66,13 @@ Example dataset link: [Zenodo](https://xxx)
 | N        | 495.2        | 54.5                    |
 
 ## 🔥 Model Training
+### 1. Training from scratch
+To train the `SlopeTransformer` model, run the following command:
+   ```bash
+   python main.py
+   ```
+This script loads `Geological data.CSV`, `Landslide position data.CSV`, and `Slope length data.CSV`. It trains the model using 5-fold cross-validation, with the `SlopeTransformer` model and `Norm Position Error` (NPE) as the evaluation metric.
 
-
-
-Key Features
-High-Locality Initiation Prediction: Predicts landslide initiation positions based on terrain characteristics such as soil thickness, slope, plan curvature, and more.
-
-Explainable AI: Implements SHAP (Shapley Additive Explanations) for model interpretability, enabling transparency in how terrain factors influence the predictions.
-
-Profile-based Input: The model takes continuous profiles of terrain data to predict the initiation location with respect to the slope's horizontal length.
-
-Model Architecture: Uses an encoder-only Transformer network for efficient learning of spatial dependencies.
-
-Methodology
-Terrain Profile Extraction: Slope profiles are extracted using GIS-based hydrological methods, delineating ridge and valley lines and using the steepest descent method.
-
-Feature Engineering: Eight terrain factors (soil thickness, slope, plan curvature, profile curvature, position index, TWI, elevation, relative height) are considered.
-
-Model Design: TeLIP employs an encoder-only Transformer to process terrain feature matrices and predict landslide initiation locations.
-
-Model Evaluation: The model is trained using a binary cross-entropy loss function, evaluated with mean absolute errors (MAE) and mean normalized position errors (MNPE).
-
-SHAP Analysis: SHAP is used to interpret the contribution of each feature to the model’s predictions.
-
-Setup
-Prerequisites
-Python 3.x
-
-Required libraries:
-
-PyTorch
-
-NumPy
-
-Pandas
-
-SHAP
-
-scikit-learn
-
-Matplotlib
-
-You can install the necessary dependencies using pip:
-
-bash
-复制
-pip install torch numpy pandas shap scikit-learn matplotlib
-Data Preparation
-The model requires terrain data in the form of digital elevation models (DEMs) and other topographic features (e.g., soil thickness, TWI).
-
-Input data should be preprocessed to extract slope profiles and corresponding terrain features.
-
-Running the Model
-Prepare the dataset with terrain feature matrices and landslide initiation vectors.
-
-Train the model using the provided training scripts.
-
-bash
-复制
-python train.py --data <path_to_dataset> --output <model_output_path>
-After training, the model can be used for prediction:
-
-bash
-复制
-python predict.py --model <trained_model_path> --data <test_data_path> --output <predictions_path>
 Results
 TeLIP’s output consists of landslide initiation probabilities across the slope profiles. The model’s performance is evaluated based on MAE and MNPE, with validation conducted using five-fold cross-validation.
 
