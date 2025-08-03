@@ -18,7 +18,7 @@
 - This will set up the environment with all required dependencies for `TeLIP`.
 
 ## 📊 Datasets
-Example dataset link: [Zenodo](https://xxx)
+Example dataset link: [Figshare]([https://xxx](https://doi.org/10.6084/m9.figshare.29816060.v1))
 - Three types of input data are required for the model: `geological data` as predictors, `landslide position data` as targets, and `slope length data` for evaluating prediction error.
 - Users can create their corresponding training datasets based on the following data format according to their landslide research objectives.
 
