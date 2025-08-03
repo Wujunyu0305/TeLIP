@@ -83,6 +83,8 @@ The `SlopeTransformer` model uses:
 A `Linear Layer` for predicting the landslide position.
 The model is trained with `BCELoss` to minimize the error between predicted and actual positions.
 
+## 🌈 Acknowledgements
+This work is supported by the National Key R&D Program of China (2024YFC3012601) and the National Natural Science Foundation of China (42277132).
 
 
 Results
